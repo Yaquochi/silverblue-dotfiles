@@ -1,0 +1,15 @@
+[/]
+control-center=['<Super>y']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+home=['<Super>n']
+magnifier=@as []
+screenreader=@as []
+screensaver=@as []
+volume-down=['<Super>w']
+volume-mute=['<Super>e']
+volume-up=['<Super>r']
+
+[custom-keybindings/custom0]
+binding='<Super>h'
+command='alacritty'
+name='terminal'

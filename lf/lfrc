@@ -1,0 +1,7 @@
+set editor vim
+cmd open ${{
+    case $(file --mime-type -Lb "$f") in
+        text/*) $EDITOR "$f" ;;
+        *) xdg-open "$f" ;;
+    esac
+}}

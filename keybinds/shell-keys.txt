@@ -1,0 +1,5 @@
+[/]
+focus-active-notification=@as []
+toggle-application-view=['<Super>d']
+toggle-message-tray=@as []
+toggle-quick-settings=@as []
