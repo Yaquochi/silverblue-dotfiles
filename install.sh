@@ -51,8 +51,17 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak remote-modify --enable flathub
 
 flatpak install -y flathub com.mattjakeman.ExtensionManager
+# Download in extension manager: 
+# 1) PaperWM
+# 2) Workspaces indicator by open apps
+# 3) AppIndicator and KStatusNotifierItem Support
+# 4) Clipboard Indicator
+# 5) Blur my Shell
+gnome-extensions enable paperwm@paperwm.github.com
+gnome-extensions enable workspaces-by-open-apps@favo02.github.com
 gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
 gnome-extensions enable clipboard-indicator@tudmotu.com
+gnome-extensions enable blur-my-shell@aunetx
 
 flatpak install -y flathub net.waterfox.waterfox
 flatpak install -y flathub com.github.tchx84.Flatseal
