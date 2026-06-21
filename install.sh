@@ -65,7 +65,6 @@ gnome-extensions enable blur-my-shell@aunetx
 
 flatpak install -y flathub net.waterfox.waterfox
 flatpak install -y flathub com.github.tchx84.Flatseal
-flatpak install -y flathub io.github.peazip.PeaZip
 
 flatpak install -y flathub org.gimp.GIMP
 flatpak install -y flathub org.kde.kdenlive
@@ -79,11 +78,14 @@ flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.zotero.Zotero
 flatpak install -y flathub com.github.johnfactotum.Foliate
 flatpak install -y flathub md.obsidian.Obsidian
-flatpak install -y flathub me.kozec.syncthingtk
 flatpak install -y flathub org.jamovi.jamovi
 flatpak install -y flathub com.rafaelmardojai.Blanket
 
 flatpak install -y flathub org.qbittorrent.qBittorrent
+flatpak install -y flathub org.localsend.localsend_app
+flatpak install -y flathub me.kozec.syncthingtk
+flatpak install -y flathub io.github.peazip.PeaZip
+
 flatpak install -y flathub org.telegram.desktop
 flatpak install -y flathub com.discordapp.Discord
 flatpak install -y flathub org.signal.Signal
