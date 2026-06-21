@@ -38,15 +38,6 @@ wget https://files.stirlingpdf.com/linux-installer.rpm
 sudo rpm-ostree install ./linux-installer.rpm -y
 rm linux-installer.rpm
 
-mkdir -p ~/.local/bin
-curl https://mise.run | MISE_INSTALL_PATH="$HOME/.local/bin/mise" sh
-export PATH="$HOME/.local/bin:$PATH"
-source ~/.bashrc
-mise use -g kubectl@latest
-mise use -g helm@latest
-mise use -g k9s@latest
-mise use -g aqua:gokcehan/lf@latest
-
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-modify --enable flathub
 
@@ -119,6 +110,17 @@ dconf load /org/gnome/settings-daemon/plugins/media-keys/ < ./keybinds/media-key
 dconf load /org/gnome/mutter/keybindings/ < ./keybinds/mutter-keys.txt
 dconf load /org/gnome/mutter/wayland/keybindings/ < ./keybinds/mutter-wayland-keys.txt
 dconf load /org/gnome/shell/keybindings/ < ./keybinds/shell-keys.txt
+
+mkdir -p ~/.local/bin
+curl https://mise.run | MISE_INSTALL_PATH="$HOME/.local/bin/mise" sh
+export PATH="$HOME/.local/bin:$PATH"
+echo 'eval "$(mise activate bash)"' >> ~/.bashrc
+source ~/.bashrc
+cd ~
+mise use -g kubectl@latest
+mise use -g helm@latest
+mise use -g k9s@latest
+mise use -g yazi@latest
 
 sudo rpm-ostree upgrade
 flatpak update -y
