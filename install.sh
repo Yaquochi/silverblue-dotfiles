@@ -82,6 +82,7 @@ flatpak install -y flathub com.discordapp.Discord
 flatpak install -y flathub org.signal.Signal
 
 cp -v ./bash/.bashrc ~/.bashrc
+cp -v ./bash/.dircolors ~/.dircolors
 
 mkdir -p ~/.local/share/fonts
 cp -rv ./fonts/* ~/.local/share/fonts/
@@ -114,7 +115,6 @@ dconf load /org/gnome/shell/keybindings/ < ./keybinds/shell-keys.txt
 mkdir -p ~/.local/bin
 curl https://mise.run | MISE_INSTALL_PATH="$HOME/.local/bin/mise" sh
 export PATH="$HOME/.local/bin:$PATH"
-echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 source ~/.bashrc
 cd ~
 mise use -g kubectl@latest

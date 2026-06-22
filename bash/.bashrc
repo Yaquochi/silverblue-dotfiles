@@ -32,6 +32,10 @@ export SUDO_EDITOR=vim
 export GIT_EDITOR=vim
 export SYSTEMD_EDITOR=vim
 
+eval "$(dircolors -b ~/.dircolors)"
+alias ls='ls --color=auto'
+PS1='\[\e[38;2;199;146;234m\]\u@\h:\[\e[38;2;137;220;235m\]\w\[\e[38;2;245;166;214m\]\$ \[\e[0m\]'
+
 alias k-demo='export KUBECONFIG=~/.kube/config_demo && echo "Demo"'
 alias k-lanit='export KUBECONFIG=~/.kube/config_lanit && echo "Test&Dev&DKS"'
 alias k-presale='export KUBECONFIG=~/.kube/config_presale && echo "Presale"'
@@ -40,3 +44,4 @@ alias k-status='echo "Текущий KUBECONFIG: $KUBECONFIG" && kubectl config 
 export K9S_FEATURE_GATE_NODE_SHELL=true
 
 export PATH="$HOME/.local/bin:$PATH"
+eval "$(mise activate bash)"
