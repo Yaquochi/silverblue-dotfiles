@@ -26,7 +26,6 @@ sudo rpm-ostree install \
   tmux \
   vim \
   btop \
-  skopeo \
   gnome-tweaks -y
 
 wget https://files.stirlingpdf.com/linux-installer.rpm
