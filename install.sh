@@ -2,12 +2,6 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-gsettings set org.gnome.desktop.interface enable-animations false
-
-flatpak uninstall -y --delete-data org.gnome.Characters
-flatpak uninstall -y --delete-data org.gnome.Contacts
-flatpak uninstall -y --delete-data org.gnome.Extensions
-
 sudo rpm-ostree override remove \
   gnome-tour \
   gnome-system-monitor \
@@ -32,11 +26,19 @@ sudo rpm-ostree install \
   tmux \
   vim \
   btop \
+  skopeo \
   gnome-tweaks -y
 
 wget https://files.stirlingpdf.com/linux-installer.rpm
 sudo rpm-ostree install ./linux-installer.rpm -y
 rm linux-installer.rpm
+
+systemctl reboot -i
+
+# flatpak
+flatpak uninstall -y --delete-data org.gnome.Characters
+flatpak uninstall -y --delete-data org.gnome.Contacts
+flatpak uninstall -y --delete-data org.gnome.Extensions
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-modify --enable flathub
@@ -81,6 +83,9 @@ flatpak install -y flathub org.telegram.desktop
 flatpak install -y flathub com.discordapp.Discord
 flatpak install -y flathub org.signal.Signal
 
+# environment
+gsettings set org.gnome.desktop.interface enable-animations false
+
 cp -v ./bash/.bashrc ~/.bashrc
 cp -v ./bash/.dircolors ~/.dircolors
 
@@ -112,6 +117,7 @@ dconf load /org/gnome/mutter/keybindings/ < ./keybinds/mutter-keys.txt
 dconf load /org/gnome/mutter/wayland/keybindings/ < ./keybinds/mutter-wayland-keys.txt
 dconf load /org/gnome/shell/keybindings/ < ./keybinds/shell-keys.txt
 
+# cli tools
 mkdir -p ~/.local/bin
 curl https://mise.run | MISE_INSTALL_PATH="$HOME/.local/bin/mise" sh
 export PATH="$HOME/.local/bin:$PATH"
@@ -137,6 +143,7 @@ mise use -g shellcheck@latest
 mise use -g hadolint@latest
 mise use -g oras@latest
 
+# update
 sudo rpm-ostree upgrade
 flatpak update -y
 mise upgrade
