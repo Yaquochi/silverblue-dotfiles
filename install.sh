@@ -120,8 +120,11 @@ cd ~
 mise use -g kubectl@latest
 mise use -g helm@latest
 mise use -g k9s@latest
+mise use -g kubectx@latest
+mise use -g jq@latest
+mise use -g yq@latest
+mise use -g lazygit@latest
 mise use -g hunk@latest
-mise use -g yazi@latest
 
 sudo rpm-ostree upgrade
 flatpak update -y
