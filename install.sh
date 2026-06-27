@@ -120,6 +120,7 @@ cd ~
 mise use -g kubectl@latest
 mise use -g helm@latest
 mise use -g k9s@latest
+mise use -g hunk@latest
 mise use -g yazi@latest
 
 sudo rpm-ostree upgrade
