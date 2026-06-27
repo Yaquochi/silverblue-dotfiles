@@ -117,14 +117,25 @@ curl https://mise.run | MISE_INSTALL_PATH="$HOME/.local/bin/mise" sh
 export PATH="$HOME/.local/bin:$PATH"
 source ~/.bashrc
 cd ~
+# common
+mise use -g lazygit@latest
+mise use -g hunk@latest
+
+# devops
 mise use -g kubectl@latest
 mise use -g helm@latest
 mise use -g k9s@latest
 mise use -g kubectx@latest
 mise use -g jq@latest
 mise use -g yq@latest
-mise use -g lazygit@latest
-mise use -g hunk@latest
+mise use -g trivy@latest
+mise use -g terraform@latest
+mise use -g opentofu@latest
+mise use -g pipx@latest
+mise use -g ansible@latest
+mise use -g shellcheck@latest
+mise use -g hadolint@latest
+mise use -g oras@latest
 
 sudo rpm-ostree upgrade
 flatpak update -y
