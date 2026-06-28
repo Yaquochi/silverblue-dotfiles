@@ -123,6 +123,7 @@ export PATH="$HOME/.local/bin:$PATH"
 source ~/.bashrc
 cd ~
 # common
+mise use -g opencode@latest
 mise use -g lazygit@latest
 mise use -g hunk@latest
 
