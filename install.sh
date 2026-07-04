@@ -99,6 +99,9 @@ cp -rv ./tmux/* ~/.config/tmux/
 
 cp -v ./vim/.vimrc ~/.vimrc 2>/dev/null || true
 
+mkdir -p ~/.config/fastfetch
+cp -v ./fastfetch/config.jsonc ~/.config/fastfetch
+
 mkdir -p ~/.config/k9s
 cp -rv ./k9s/* ~/.config/k9s/ 2>/dev/null || true
 
@@ -122,13 +125,16 @@ export PATH="$HOME/.local/bin:$PATH"
 source ~/.bashrc
 cd ~
 # common
-mise use -g herdr@latest
 mise use -g tmux@latest
 mise use -g vim@latest
 mise use -g btop@latest
-mise use -g opencode@latest
+mise use -g fastfetch@latest
 mise use -g lazygit@latest
 mise use -g hunk@latest
+
+# ai
+mise use -g herdr@latest
+mise use -g opencode@latest
 
 # devops
 mise use -g kubectl@latest

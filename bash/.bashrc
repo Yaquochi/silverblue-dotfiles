@@ -45,3 +45,5 @@ export K9S_FEATURE_GATE_NODE_SHELL=true
 
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(mise activate bash)"
+
+alias ff='fastfetch'

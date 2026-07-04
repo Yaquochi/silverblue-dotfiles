@@ -1,0 +1,180 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "display": {
+    "separator": "  ",
+    "key": {
+      "width": 13,
+      "type": "string"
+    },
+    "color": {
+      "keys": "35",
+      "title": "36"
+    },
+    "bar": {
+      "width": 10,
+      "char": {
+        "elapsed": "●",
+        "total": "·"
+      }
+    },
+    "percent": {
+      "type": 3
+    }
+  },
+
+  "modules": [
+    {
+      "type": "title",
+      "keyColor": "36"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#35}╭─ general"
+    },
+    {
+      "type": "host",
+      "key": "│ Host",
+      "keyColor": "35"
+    },
+    {
+      "type": "cpu",
+      "key": "│ CPU",
+      "keyColor": "35",
+      "format": "{name} ({cores-logical}T)"
+    },
+    {
+      "type": "gpu",
+      "key": "│ GPU",
+      "keyColor": "35",
+      "format": "{name}"
+    },
+    {
+      "type": "terminal",
+      "key": "│ Terminal",
+      "keyColor": "35"
+    },
+    {
+      "type": "display",
+      "key": "╰ Display",
+      "keyColor": "35",
+      "format": "{width}x{height} @ {refresh-rate}Hz, {inch}\""
+    },
+
+    "break",
+
+    {
+      "type": "custom",
+      "format": "{#36}╭─ system"
+    },
+    {
+      "type": "os",
+      "key": "│ OS",
+      "keyColor": "36"
+    },
+    {
+      "type": "kernel",
+      "key": "│ Kernel",
+      "keyColor": "36"
+    },
+    {
+      "type": "de",
+      "key": "│ DE",
+      "keyColor": "36"
+    },
+    {
+      "type": "shell",
+      "key": "│ Shell",
+      "keyColor": "36"
+    },
+    {
+      "type": "packages",
+      "key": "│ Packages",
+      "keyColor": "36"
+    },
+    {
+      "type": "uptime",
+      "key": "╰ Uptime",
+      "keyColor": "36"
+    },
+
+    "break",
+
+    {
+      "type": "custom",
+      "format": "{#32}╭─ performance"
+    },
+    {
+      "type": "battery",
+      "key": "│ Battery",
+      "keyColor": "32"
+    },
+    {
+      "type": "cpuusage",
+      "key": "│ CPU Load",
+      "keyColor": "32",
+      "format": "{avg-bar} {avg}",
+      "waitTime": 500
+    },
+    {
+      "type": "cpu",
+      "key": "│ CPU Temp",
+      "keyColor": "32",
+      "format": "{temperature}",
+      "temp": true
+    },
+    {
+      "type": "gpu",
+      "key": "│ GPU Load",
+      "keyColor": "32",
+      "format": "{core-usage-bar} {core-usage-num}",
+      "driverSpecific": true
+    },
+    {
+      "type": "gpu",
+      "key": "│ GPU Temp",
+      "keyColor": "32",
+      "format": "{temperature}",
+      "temp": true,
+      "driverSpecific": true
+    },
+    {
+      "type": "memory",
+      "key": "│ Memory",
+      "keyColor": "32",
+      "percent": {
+        "type": 3
+      }
+    },
+    {
+      "type": "swap",
+      "key": "╰ Swap",
+      "keyColor": "32",
+      "percent": {
+        "type": 3
+      }
+    },
+
+    "break",
+
+    {
+      "type": "custom",
+      "format": "{#33}╭─ volumes"
+    },
+    {
+      "type": "disk",
+      "key": "│ System",
+      "keyColor": "33",
+      "folders": "/etc",
+      "format": "{size-used} / {size-total} ({size-percentage}) - {filesystem}"
+    },
+    {
+      "type": "disk",
+      "key": "╰ Data",
+      "keyColor": "33",
+      "folders": "/var/mnt/data",
+      "format": "{size-used} / {size-total} ({size-percentage}) - {filesystem}"
+    }
+  ]
+}
