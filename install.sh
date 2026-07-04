@@ -49,11 +49,13 @@ flatpak install -y flathub com.mattjakeman.ExtensionManager
 # 3) AppIndicator and KStatusNotifierItem Support
 # 4) Clipboard Indicator
 # 5) Blur my Shell
+# 6) Caffeine
 gnome-extensions enable paperwm@paperwm.github.com
 gnome-extensions enable workspaces-by-open-apps@favo02.github.com
 gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
 gnome-extensions enable clipboard-indicator@tudmotu.com
 gnome-extensions enable blur-my-shell@aunetx
+gnome-extensions enable caffeine@patapon.info
 
 flatpak install -y flathub net.waterfox.waterfox
 flatpak install -y flathub com.github.tchx84.Flatseal
