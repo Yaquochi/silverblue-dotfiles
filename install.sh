@@ -23,9 +23,6 @@ sudo rpm-ostree override remove \
 
 sudo rpm-ostree install \
   alacritty \
-  tmux \
-  vim \
-  btop \
   gnome-tweaks -y
 
 wget https://files.stirlingpdf.com/linux-installer.rpm
@@ -125,6 +122,10 @@ export PATH="$HOME/.local/bin:$PATH"
 source ~/.bashrc
 cd ~
 # common
+mise use -g herdr@latest
+mise use -g tmux@latest
+mise use -g vim@latest
+mise use -g btop@latest
 mise use -g opencode@latest
 mise use -g lazygit@latest
 mise use -g hunk@latest
