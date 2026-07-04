@@ -51,6 +51,13 @@
       "format": "{name}"
     },
     {
+      "type": "command",
+      "key": "│ Disks",
+      "keyColor": "35",
+      "shell": "/bin/sh",
+      "text": "$HOME/.local/bin/ff-disks"
+    },
+    {
       "type": "terminal",
       "key": "│ Terminal",
       "keyColor": "35"
