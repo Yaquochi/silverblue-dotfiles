@@ -58,7 +58,11 @@ sudo apt install -y \
   xdg-desktop-portal-gnome
   python3-venv \
   python3-pip \
-  pipx
+  pipx \
+  ntfs-3g \
+  exfatprogs \
+  rsync
+
 sudo reboot
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
