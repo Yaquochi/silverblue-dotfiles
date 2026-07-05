@@ -56,6 +56,9 @@ sudo apt install -y \
   flatpak \
   xdg-desktop-portal \
   xdg-desktop-portal-gnome
+  python3-venv \
+  python3-pip \
+  pipx
 sudo reboot
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -67,7 +70,7 @@ flatpak install -y flathub com.obsproject.Studio
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub md.obsidian.Obsidian
 
-# environment
+# environment - cd in /home/yakov/repos/silverblue-dotfiles
 gsettings set org.gnome.desktop.interface enable-animations false
 
 cp -v ./bash/.bashrc ~/.bashrc
@@ -132,7 +135,6 @@ mise use -g yq@latest
 mise use -g trivy@latest
 mise use -g terraform@latest
 mise use -g opentofu@latest
-mise use -g pipx@latest
 mise use -g ansible@latest
 mise use -g shellcheck@latest
 mise use -g hadolint@latest
