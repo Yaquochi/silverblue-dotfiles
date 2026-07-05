@@ -35,6 +35,7 @@ sudo reboot
 
 sudo apt install -y \
   alacritty \
+  vim \
   git \
   curl \
   ca-certificates \
@@ -120,7 +121,6 @@ source ~/.bashrc
 cd ~
 # common
 mise use -g tmux@latest
-mise use -g vim@latest
 mise use -g btop@latest
 mise use -g fastfetch@latest
 mise use -g lazygit@latest
