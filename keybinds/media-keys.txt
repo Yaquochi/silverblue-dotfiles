@@ -3,13 +3,14 @@ control-center=['<Super>y']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
 home=['<Super>n']
 magnifier=@as []
+rotate-video-lock-static=['<Super>o', 'XF86RotationLockToggle']
 screenreader=@as []
 screensaver=@as []
-volume-down=['<Super>w']
-volume-mute=['<Super>e']
-volume-up=['<Super>r']
+volume-down=['<Super>x']
+volume-mute=['<Super>c']
+volume-up=['<Super>v']
 
 [custom-keybindings/custom0]
-binding='<Super>h'
+binding='<Super>semicolon'
 command='alacritty'
 name='terminal'

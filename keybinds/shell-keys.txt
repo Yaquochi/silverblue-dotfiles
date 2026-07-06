@@ -1,5 +1,7 @@
 [/]
 focus-active-notification=@as []
-toggle-application-view=['<Super>d']
+shift-overview-down=['<Super><Alt>Down']
+shift-overview-up=['<Super><Alt>Up']
+toggle-application-view=@as []
 toggle-message-tray=@as []
 toggle-quick-settings=@as []

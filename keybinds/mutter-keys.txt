@@ -1,3 +1,4 @@
 [/]
-toggle-tiled-left=['<Super>j']
-toggle-tiled-right=['<Super>k']
+cancel-input-capture=['<Super><Shift>Escape']
+toggle-tiled-left=['<Super>m']
+toggle-tiled-right=['<Super>comma']
