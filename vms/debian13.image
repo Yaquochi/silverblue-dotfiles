@@ -61,9 +61,26 @@ sudo apt install -y \
   ntfs-3g \
   exfatprogs \
   rsync \
-  wl-clipboard
+  wl-clipboard \
+  postgresql-client
 
 sudo reboot
+
+# pgadmin
+sudo apt update
+sudo apt install -y curl ca-certificates gnupg lsb-release
+
+sudo install -d -m 0755 /etc/apt/keyrings
+
+curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/packages-pgadmin-org.gpg
+
+sudo chmod 644 /etc/apt/keyrings/packages-pgadmin-org.gpg
+
+sudo sh -c 'echo "deb [signed-by=/etc/apt/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list'
+
+sudo apt update
+sudo apt install -y pgadmin4-desktop
 
 # docker
 sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc podman-docker containerd runc | cut -f1)
