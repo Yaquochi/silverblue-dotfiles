@@ -25,10 +25,6 @@ sudo rpm-ostree install \
   alacritty \
   gnome-tweaks -y
 
-wget https://files.stirlingpdf.com/linux-installer.rpm
-sudo rpm-ostree install ./linux-installer.rpm -y
-rm linux-installer.rpm
-
 systemctl reboot -i
 
 # flatpak
