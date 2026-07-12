@@ -66,6 +66,7 @@ flatpak install -y flathub org.atheme.audacious
 flatpak install -y flathub com.github.wwmm.easyeffects
 
 flatpak install -y flathub org.onlyoffice.desktopeditors
+flatpak install -y flathub org.gnome.SimpleScan
 flatpak install -y flathub org.zotero.Zotero
 flatpak install -y flathub com.github.johnfactotum.Foliate
 flatpak install -y flathub md.obsidian.Obsidian
