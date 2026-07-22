@@ -148,7 +148,7 @@ mkdir -p ~/Pictures
 cp -rv ./pics/* ~/Pictures/
 
 mkdir -p ~/.config/pipewire/pipewire.conf.d
-cp ./sound/10-lowlatency.conf ~/.config/pipewire/pipewire.conf.d
+cp ./sound/10-vm-audio.conf.conf ~/.config/pipewire/pipewire.conf.d
 systemctl --user restart pipewire pipewire-pulse wireplumber
 
 dconf load /org/gnome/desktop/wm/keybindings/ < ./keybinds/wm-keys.txt
