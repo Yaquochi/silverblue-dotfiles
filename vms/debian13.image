@@ -36,6 +36,7 @@ sudo reboot
 sudo apt install -y \
   alacritty \
   vim \
+  tree \
   git \
   curl \
   ca-certificates \
