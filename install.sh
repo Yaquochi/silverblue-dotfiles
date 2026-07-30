@@ -60,6 +60,7 @@ flatpak install -y flathub com.obsproject.Studio
 flatpak install -y flathub io.mpv.Mpv
 flatpak install -y flathub org.atheme.audacious
 flatpak install -y flathub com.github.wwmm.easyeffects
+flatpak install -y flathub com.saivert.pwvucontrol
 
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.zotero.Zotero
