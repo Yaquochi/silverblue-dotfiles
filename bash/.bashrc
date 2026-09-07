@@ -26,11 +26,15 @@ unset rc
 
 export LIBVIRT_DEFAULT_URI='qemu:///system'
 export TERM=xterm-256color
-export VISUAL=vim
-export EDITOR=vim
-export SUDO_EDITOR=vim
-export GIT_EDITOR=vim
-export SYSTEMD_EDITOR=vim
+
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(mise activate bash)"
+
+export VISUAL="$(command -v vim)"
+export EDITOR="$VISUAL"
+export SUDO_EDITOR="$VISUAL"
+export GIT_EDITOR="$VISUAL"
+export SYSTEMD_EDITOR="$VISUAL"
 
 eval "$(dircolors -b ~/.dircolors)"
 alias ls='ls --color=auto'
@@ -43,7 +47,4 @@ alias k-status='echo "Текущий KUBECONFIG: $KUBECONFIG" && kubectl config 
 
 export K9S_FEATURE_GATE_NODE_SHELL=true
 
-export PATH="$HOME/.local/bin:$PATH"
-eval "$(mise activate bash)"
-
-alias ff='fastfetch'
+alias ff='fastfetch --logo none'

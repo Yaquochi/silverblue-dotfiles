@@ -111,6 +111,21 @@ mkdir -p ~/.config/pipewire/pipewire.conf.d
 cp ./sound/10-audio.conf ~/.config/pipewire/pipewire.conf.d
 systemctl --user restart pipewire pipewire-pulse wireplumber
 
+# keybinds
+
+gsettings set org.gnome.mutter overlay-key ''
+
+FEDORA="$(rpm -E %fedora)"
+sudo curl -fL \
+  "https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-${FEDORA}/alternateved-keyd-fedora-${FEDORA}.repo" \
+  -o /etc/yum.repos.d/_copr-alternateved-keyd.repo
+sudo rpm-ostree install keyd
+systemctl reboot -i
+
+sudo install -Dm644 ./keyd/default.conf /etc/keyd/default.conf
+sudo keyd check /etc/keyd/default.conf
+sudo systemctl enable --now keyd
+
 dconf load /org/gnome/desktop/wm/keybindings/ < ./keybinds/wm-keys.txt
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < ./keybinds/media-keys.txt
 dconf load /org/gnome/mutter/keybindings/ < ./keybinds/mutter-keys.txt
