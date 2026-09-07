@@ -21,8 +21,14 @@ sudo rpm-ostree override remove \
   firefox firefox-langpacks \
   firefox
 
+FEDORA="$(rpm -E %fedora)"
+sudo curl -fL \
+  "https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-${FEDORA}/alternateved-keyd-fedora-${FEDORA}.repo" \
+  -o /etc/yum.repos.d/_copr-alternateved-keyd.repo
+
 sudo rpm-ostree install \
   alacritty \
+  keyd \
   gnome-tweaks -y
 
 systemctl reboot -i
@@ -115,13 +121,6 @@ systemctl --user restart pipewire pipewire-pulse wireplumber
 
 gsettings set org.gnome.mutter overlay-key ''
 
-FEDORA="$(rpm -E %fedora)"
-sudo curl -fL \
-  "https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-${FEDORA}/alternateved-keyd-fedora-${FEDORA}.repo" \
-  -o /etc/yum.repos.d/_copr-alternateved-keyd.repo
-sudo rpm-ostree install keyd
-systemctl reboot -i
-
 sudo install -Dm644 ./keyd/default.conf /etc/keyd/default.conf
 sudo keyd check /etc/keyd/default.conf
 sudo systemctl enable --now keyd
@@ -138,6 +137,7 @@ curl https://mise.run | MISE_INSTALL_PATH="$HOME/.local/bin/mise" sh
 export PATH="$HOME/.local/bin:$PATH"
 source ~/.bashrc
 cd ~
+
 # common
 mise use -g tmux@latest
 mise use -g vim@latest

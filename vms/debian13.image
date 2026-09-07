@@ -155,9 +155,6 @@ systemctl --user restart pipewire pipewire-pulse wireplumber
 
 gsettings set org.gnome.mutter overlay-key ''
 
-sudo apt update
-sudo apt install -y keyd
-
 sudo install -Dm644 ./keyd/default.conf /etc/keyd/default.conf
 sudo keyd check /etc/keyd/default.conf
 sudo systemctl enable --now keyd
