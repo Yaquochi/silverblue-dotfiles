@@ -54,8 +54,6 @@ sudo apt install -y \
   xdg-desktop-portal-gnome \
   gnome-tweaks \
   flatpak \
-  xdg-desktop-portal \
-  xdg-desktop-portal-gnome
   python3-venv \
   python3-pip \
   pipx \
@@ -63,7 +61,8 @@ sudo apt install -y \
   exfatprogs \
   rsync \
   wl-clipboard \
-  postgresql-client
+  postgresql-client \
+  keyd
 
 sudo reboot
 
@@ -149,19 +148,15 @@ mkdir -p ~/Pictures
 cp -rv ./pics/* ~/Pictures/
 
 mkdir -p ~/.config/pipewire/pipewire.conf.d
-cp ./sound/10-vm-audio.conf.conf ~/.config/pipewire/pipewire.conf.d
+cp ./sound/10-vm-audio.conf ~/.config/pipewire/pipewire.conf.d
 systemctl --user restart pipewire pipewire-pulse wireplumber
 
 # keybinds
 
 gsettings set org.gnome.mutter overlay-key ''
 
-FEDORA="$(rpm -E %fedora)"
-sudo curl -fL \
-  "https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-${FEDORA}/alternateved-keyd-fedora-${FEDORA}.repo" \
-  -o /etc/yum.repos.d/_copr-alternateved-keyd.repo
-sudo rpm-ostree install keyd
-systemctl reboot -i
+sudo apt update
+sudo apt install -y keyd
 
 sudo install -Dm644 ./keyd/default.conf /etc/keyd/default.conf
 sudo keyd check /etc/keyd/default.conf
