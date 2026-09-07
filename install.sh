@@ -37,13 +37,13 @@ flatpak remote-modify --enable flathub
 
 flatpak install -y flathub com.mattjakeman.ExtensionManager
 # Download in extension manager: 
-# 1) PaperWM
+# 1) Smart Auto Move NG
 # 2) Workspaces indicator by open apps
 # 3) AppIndicator and KStatusNotifierItem Support
 # 4) Clipboard Indicator
 # 5) Blur my Shell
 # 6) Caffeine
-gnome-extensions enable paperwm@paperwm.github.com
+gnome-extensions enable SmartAutoMoveNG@lauinger-clan.de
 gnome-extensions enable workspaces-by-open-apps@favo02.github.com
 gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
 gnome-extensions enable clipboard-indicator@tudmotu.com
