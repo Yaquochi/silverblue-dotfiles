@@ -62,7 +62,6 @@ sudo apt install -y \
   rsync \
   wl-clipboard \
   postgresql-client \
-  keyd
 
 sudo reboot
 
@@ -154,10 +153,6 @@ systemctl --user restart pipewire pipewire-pulse wireplumber
 # keybinds
 
 gsettings set org.gnome.mutter overlay-key ''
-
-sudo install -Dm644 ./keyd/default.conf /etc/keyd/default.conf
-sudo keyd check /etc/keyd/default.conf
-sudo systemctl enable --now keyd
 
 dconf load /org/gnome/desktop/wm/keybindings/ < ./keybinds/wm-keys.txt
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < ./keybinds/media-keys.txt
