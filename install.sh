@@ -170,6 +170,7 @@ mise use -g oras@latest
 # update
 sudo rpm-ostree upgrade
 flatpak update -y
+mise self-update
 mise upgrade
 
 systemctl reboot -i

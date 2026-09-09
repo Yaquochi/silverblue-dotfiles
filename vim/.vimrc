@@ -1,4 +1,4 @@
-xnoremap <silent> y y:call system("wl-copy", @")<CR>
+xnoremap y "+y
 
 set nocompatible
 syntax on
