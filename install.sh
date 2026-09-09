@@ -149,6 +149,7 @@ mise use -g hunk@latest
 # ai
 mise use -g herdr@latest
 mise use -g opencode@latest
+mise use -g codex@latest
 
 # devops
 mise use -g kubectl@latest
