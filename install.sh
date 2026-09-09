@@ -137,6 +137,7 @@ curl https://mise.run | MISE_INSTALL_PATH="$HOME/.local/bin/mise" sh
 export PATH="$HOME/.local/bin:$PATH"
 source ~/.bashrc
 cd ~
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
 
 # common
 mise use -g tmux@latest
@@ -149,7 +150,6 @@ mise use -g hunk@latest
 # ai
 mise use -g herdr@latest
 mise use -g opencode@latest
-mise use -g codex@latest
 
 # devops
 mise use -g kubectl@latest
