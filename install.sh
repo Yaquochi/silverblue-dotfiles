@@ -76,6 +76,7 @@ flatpak install -y flathub com.github.johnfactotum.Foliate
 flatpak install -y flathub md.obsidian.Obsidian
 flatpak install -y flathub org.jamovi.jamovi
 flatpak install -y flathub com.rafaelmardojai.Blanket
+flatpak install -y flathub net.ankiweb.Anki
 
 flatpak install -y flathub org.qbittorrent.qBittorrent
 flatpak install -y flathub org.localsend.localsend_app
