@@ -123,6 +123,7 @@ flatpak install -y flathub net.waterfox.waterfox
 flatpak install -y flathub com.obsproject.Studio
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub md.obsidian.Obsidian
+flatpak install -y flathub org.mozilla.thunderbird
 
 # environment - cd in /home/yakov/repos/silverblue-dotfiles
 gsettings set org.gnome.desktop.interface enable-animations false
