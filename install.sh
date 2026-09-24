@@ -28,8 +28,14 @@ sudo curl -fL \
 
 sudo rpm-ostree install \
   alacritty \
+  android-tools \
+  fuse-sshfs \
   keyd \
   gnome-tweaks -y
+
+# Happ
+# Download current x86_64 RPM manually and install:
+# sudo rpm-ostree install ./happ-*.x86_64.rpm
 
 systemctl reboot -i
 
@@ -103,10 +109,17 @@ cp -rv ./alacritty/* ~/.config/alacritty/
 mkdir -p ~/.config/tmux
 cp -rv ./tmux/* ~/.config/tmux/
 
+mkdir -p ~/.local/bin
+cp -v ./vms/workvm-run ~/.local/bin/workvm-run
+chmod +x ~/.local/bin/workvm-run
+
 cp -v ./vim/.vimrc ~/.vimrc 2>/dev/null || true
 
 mkdir -p ~/.config/fastfetch
 cp -v ./fastfetch/config.jsonc ~/.config/fastfetch
+mkdir -p ~/.local/bin
+cp -v ./fastfetch/ff-disks ~/.local/bin/ff-disks
+chmod +x ~/.local/bin/ff-disks
 
 mkdir -p ~/.config/k9s
 cp -rv ./k9s/* ~/.config/k9s/ 2>/dev/null || true

@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+import json
+import subprocess
+
+cmd = [
+    "lsblk",
+    "-J",
+    "-d",
+    "-e7",
+    "-o",
+    "NAME,MODEL,SIZE,TRAN,RM,TYPE"
+]
+
+try:
+    data = json.loads(subprocess.check_output(cmd, text=True))
+except Exception:
+    print("unknown")
+    raise SystemExit(0)
+
+items = []
+
+for disk in data.get("blockdevices", []):
+    name = disk.get("name") or ""
+    model = disk.get("model") or ""
+    size = disk.get("size") or "?"
+    tran = disk.get("tran") or "internal"
+    removable = disk.get("rm")
+
+    if disk.get("type") != "disk":
+        continue
+
+    if name.startswith(("zram", "loop")):
+        continue
+
+    if removable:
+        continue
+
+    if tran == "usb":
+        continue
+
+    label = model.strip() if model.strip() else name
+
+    # Priority:
+    # 0 — Samsung / main system SSD
+    # 1 — other internal disks
+    priority = 0 if "samsung" in label.lower() else 1
+
+    items.append((priority, label.lower(), f"{label} ({size})"))
+
+items.sort(key=lambda x: (x[0], x[1]))
+
+print("; ".join(item[2] for item in items) if items else "none")
