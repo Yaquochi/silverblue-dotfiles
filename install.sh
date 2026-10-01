@@ -29,7 +29,6 @@ sudo curl -fL \
 sudo rpm-ostree install \
   alacritty \
   android-tools \
-  fuse-sshfs \
   keyd \
   gnome-tweaks -y
 
