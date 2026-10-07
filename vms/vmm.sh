@@ -54,3 +54,19 @@ exec virt-viewer \
 EOF
 
 chmod +x ~/.local/bin/work
+
+mkdir -p ~/.local/share/applications
+
+cat > ~/.local/share/applications/virt-viewer.desktop <<'EOF'
+[Desktop Entry]
+Type=Application
+Name=virt-viewer
+Exec=/usr/bin/virt-viewer
+NoDisplay=true
+EOF
+
+flatpak permission-set \
+  gnome \
+  shortcuts-inhibitor \
+  virt-viewer.desktop \
+  GRANTED
