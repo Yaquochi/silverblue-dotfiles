@@ -44,6 +44,21 @@ sudo rpm-ostree install \
 # Required runtime libraries are installed as dependencies.
 # Updates of this local RPM are installed manually.
 
+# Handy settings (configured in the GUI after installation)
+# Model: Whisper Large v3 Q8_0 (downloaded by Handy).
+# Languages: Russian + English; recognition language: Auto.
+# Translate to English: off; Post-processing: off.
+# GNOME shortcut: Alt+Shift+J -> /usr/bin/handy --toggle-transcription
+# The shortcut is restored below from keybinds/media-keys.txt.
+# Autostart: enabled in Handy (creates ~/.config/autostart/Handy.desktop).
+# Paste Method: Direct (experimental; actual text entry still needs testing).
+# Clipboard Handling: Copy to Clipboard; Auto Submit: off.
+# Overlay: None; Typing Tool: Auto.
+# GNOME Wayland: upstream recommends ydotool for automatic text entry;
+# it is not installed yet. Direct input can misbehave on non-US layouts.
+# Fallback: Paste Method None + Copy to Clipboard, then paste manually.
+# Keep downloaded models, history and settings_store.json out of Git.
+
 systemctl reboot -i
 
 # flatpak
