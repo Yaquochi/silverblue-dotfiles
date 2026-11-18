@@ -158,7 +158,6 @@ mise use -g vim@latest
 mise use -g btop@latest
 mise use -g fastfetch@latest
 mise use -g lazygit@latest
-mise use -g hunk@latest
 
 # ai
 mise use -g herdr@latest
