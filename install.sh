@@ -36,6 +36,14 @@ sudo rpm-ostree install \
 # Download current x86_64 RPM manually and install:
 # sudo rpm-ostree install ./happ-*.x86_64.rpm
 
+# Handy (official local RPM, like Happ)
+# Releases: https://github.com/cjpais/Handy/releases
+# Installed version: 0.10.1-1 (x86_64).
+# Download the x86_64 RPM and install before rebooting:
+# sudo rpm-ostree install ./Handy-0.10.1-1.x86_64.rpm
+# Required runtime libraries are installed as dependencies.
+# Updates of this local RPM are installed manually.
+
 systemctl reboot -i
 
 # flatpak
