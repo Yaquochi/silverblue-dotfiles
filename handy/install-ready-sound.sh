@@ -4,6 +4,9 @@ cd "$(dirname "$0")"
 test -x /usr/bin/python3
 test -x /usr/bin/paplay
 python3 make-ready-tone.py "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/handy-ready.wav"
+install -Dm644 "${XDG_DATA_HOME:-$HOME/.local/share}/sounds/handy-ready.wav" \
+  "${XDG_DATA_HOME:-$HOME/.local/share}/com.pais.handy/custom_start.wav"
+python3 make-ready-tone.py "${XDG_DATA_HOME:-$HOME/.local/share}/com.pais.handy/custom_stop.wav" --silent
 install -Dm755 handy-ready-sound "$HOME/.local/bin/handy-ready-sound"
 install -Dm644 handy-ready-sound.service "$HOME/.config/systemd/user/handy-ready-sound.service"
 systemctl --user daemon-reload

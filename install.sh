@@ -57,6 +57,8 @@ sudo rpm-ostree install \
 # Direct input was disabled because GNOME requested remote interaction each time.
 # No ydotool or additional input permissions are needed for clipboard-only use.
 # Completion sound: after login, run bash handy/install-ready-sound.sh.
+# Audio Feedback: on, volume 100%, Sound Theme: Custom.
+# Same soft tone at microphone readiness and clipboard completion; stop is silent.
 # Details and rollback: handy/README.md. No extra RPMs are required.
 # Keep downloaded models, history and settings_store.json out of Git.
 

@@ -7,6 +7,7 @@ import sys
 import wave
 
 path = Path(sys.argv[1])
+gain = 0.0 if "--silent" in sys.argv[2:] else 0.07
 path.parent.mkdir(parents=True, exist_ok=True)
 rate = 44100
 duration = 0.4
@@ -19,7 +20,7 @@ for index in range(round(rate * duration)):
     release = math.sin(min((duration - t) / 0.24, 1) * math.pi / 2) ** 2
     envelope = attack * release
     tone = math.sin(2 * math.pi * 300 * t)
-    frames.extend(struct.pack('<h', round(32767 * 0.055 * envelope * tone)))
+    frames.extend(struct.pack('<h', round(32767 * gain * envelope * tone)))
 with wave.open(str(path), 'wb') as output:
     output.setparams((1, 2, rate, 0, 'NONE', 'not compressed'))
     output.writeframes(frames)
