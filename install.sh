@@ -51,12 +51,11 @@ sudo rpm-ostree install \
 # GNOME shortcut: Alt+Shift+J -> /usr/bin/handy --toggle-transcription
 # The shortcut is restored below from keybinds/media-keys.txt.
 # Autostart: enabled in Handy (creates ~/.config/autostart/Handy.desktop).
-# Paste Method: Direct (experimental; actual text entry still needs testing).
+# Paste Method: None (clipboard only; paste manually into the target app).
 # Clipboard Handling: Copy to Clipboard; Auto Submit: off.
 # Overlay: None; Typing Tool: Auto.
-# GNOME Wayland: upstream recommends ydotool for automatic text entry;
-# it is not installed yet. Direct input can misbehave on non-US layouts.
-# Fallback: Paste Method None + Copy to Clipboard, then paste manually.
+# Direct input was disabled because GNOME requested remote interaction each time.
+# No ydotool or additional input permissions are needed for clipboard-only use.
 # Keep downloaded models, history and settings_store.json out of Git.
 
 systemctl reboot -i
