@@ -1,0 +1,13 @@
+[Unit]
+Description=Sound when Handy transcription reaches the clipboard
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/handy-ready-sound
+Restart=on-failure
+RestartSec=3
+UMask=0077
+
+[Install]
+WantedBy=graphical-session.target

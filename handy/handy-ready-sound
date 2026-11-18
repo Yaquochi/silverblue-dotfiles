@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+"""Play a sound after Handy successfully leaves a transcript in the clipboard."""
+
+import argparse
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import time
+
+
+def clipboard_enabled(settings):
+    try:
+        value = json.loads(settings.read_text())["settings"]
+        return value.get("clipboard_handling") == "copy_to_clipboard"
+    except (OSError, ValueError, KeyError, TypeError):
+        return False
+
+
+def follow(path):
+    stream = None
+    identity = None
+    pending = b""
+    first = True
+    try:
+        while True:
+            try:
+                info = path.stat()
+            except FileNotFoundError:
+                time.sleep(0.2)
+                continue
+            current = (info.st_dev, info.st_ino)
+            if stream is None or current != identity:
+                if stream is not None:
+                    stream.close()
+                stream = path.open("rb")
+                identity = current
+                if first:
+                    stream.seek(0, os.SEEK_END)
+                first = False
+                pending = b""
+                print("Watching Handy for clipboard completion", flush=True)
+            elif info.st_size < stream.tell():
+                stream.seek(0)
+                pending = b""
+            chunk = stream.read(65536)
+            if not chunk:
+                time.sleep(0.2)
+                continue
+            pending += chunk
+            while b"\n" in pending:
+                line, pending = pending.split(b"\n", 1)
+                yield line
+            if len(pending) > 262144:
+                pending = b""
+    finally:
+        if stream is not None:
+            stream.close()
+
+
+def main():
+    data = Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local/share"))
+    handy = data / "com.pais.handy"
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--log", type=Path, default=handy / "logs/handy.log")
+    parser.add_argument("--settings", type=Path, default=handy / "settings_store.json")
+    parser.add_argument("--sound", type=Path,
+                        default=Path("/usr/share/sounds/freedesktop/stereo/complete.oga"))
+    parser.add_argument("--player", default="/usr/bin/paplay")
+    parser.add_argument("--test-sound", action="store_true")
+    parser.add_argument("--once", action="store_true",
+                        help="Exit after one matching completion (for verification)")
+    args = parser.parse_args()
+    if not args.sound.is_file() or shutil.which(args.player) is None:
+        parser.error("Sound file or audio player is missing")
+
+    def play():
+        try:
+            result = subprocess.run([args.player, str(args.sound)], timeout=10,
+                                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            if result.returncode:
+                print("Unable to play completion sound", flush=True)
+        except (OSError, subprocess.TimeoutExpired):
+            print("Unable to play completion sound", flush=True)
+
+    if args.test_sound:
+        play()
+        return
+    for line in follow(args.log):
+        # Handy 0.10.1 actions.rs: emitted only AFTER utils::paste succeeds.
+        # With CopyToClipboard, that includes the final clipboard write.
+        # Never print log contents or read the user's clipboard.
+        if (b"[handy_app_lib::actions]" in line
+                and b"Text pasted successfully in " in line
+                and clipboard_enabled(args.settings)):
+            play()
+            print("Handy clipboard completion sound played", flush=True)
+            if args.once:
+                return
+
+
+if __name__ == "__main__":
+    main()
