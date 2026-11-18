@@ -1,6 +1,6 @@
 [/]
 control-center=['<Super>y']
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 home=['<Super>n']
 magnifier=@as []
 rotate-video-lock-static=['XF86RotationLockToggle']
@@ -14,3 +14,8 @@ volume-up=['<Super>v']
 binding='<Super>semicolon'
 command='alacritty'
 name='terminal'
+
+[custom-keybindings/custom1]
+binding='<Alt><Shift>j'
+command='/usr/bin/handy --toggle-transcription'
+name='Handy — переключить запись'
